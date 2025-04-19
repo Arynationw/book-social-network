@@ -1,0 +1,44 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/book_social_network
+    username: postgres
+    password: 328687
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql:  true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+    host: localhost
+    port: 1025
+    username: dag
+    password: dag
+    properties:
+      mail:
+        smtp:
+          trust: "*"
+        auth: true
+        starttls:
+          enable: true
+        connectiontimeout: 5000
+        timeout: 3000
+        writetimeout: 5000
+
+application:
+  security:
+    jwt:
+      secret-key: c36ce919c71cb76946fb9b1c8bc68f4d2ce4f6c7b56398821d13f4438f1a525351b4bd48f1ea73cda70422cc19bb4377b7df2142aad61cbe5184e49cfa91e606caafa1859e70641eb6f3ba7aab0ce9aecca580aefbc50a631a6c353a2f6b72655bbb3b35f53be0d282a5a91ad7d8dc10bd18b8c006b2ae24425c698ef85280c1b5a65f5afb55ef12d97e393bbd64ffa6318e3afbc1c6a77dd1dd2301020be746042fd815899f23fe24dc4a856b54fa18fbe9905635e323953d25bf6429555157ec03d2a94106e24940e9fa7b01213ab39394b4c5371f5275842704d92d9c111736cd17c5c45a4345b5dbf30de2a798095ea9472ad3005308798497bcacd803b6
+      expiration: 8640000
+  mailing:
+    frontend:
+      activation-url: http://localhost:3000/activate-account
+  file:
+    upload:
+      photos-output-path: ./uploads
+server:
+  port: 8088
